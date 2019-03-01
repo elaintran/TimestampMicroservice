@@ -1,22 +1,23 @@
 {
-	"name": "timestampmicroservice",
-  	"version": "1.0.0",
-  	"description": "",
-  	"main": "server.js",
-  	"scripts": {
+  "name": "timestampmicroservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  	},
-  	"repository": {
+  },
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/elaintran/TimestampMicroservice.git"
-  	},
-  	"author": "Elain Tran",
-  	"license": "ISC",
-  	"bugs": {
+  },
+  "author": "Elain Tran",
+  "license": "ISC",
+  "bugs": {
     "url": "https://github.com/elaintran/TimestampMicroservice/issues"
-  	},
-  	"homepage": "https://github.com/elaintran/TimestampMicroservice#readme",
-  	"dependencies": {
-    "express": "^4.16.4"
-  	}
+  },
+  "homepage": "https://github.com/elaintran/TimestampMicroservice#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment": "^2.24.0"
+  }
 }

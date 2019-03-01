@@ -1,14 +1,15 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var moment = require("moment");
 var app = express();
 
 //get route
 var route = require("./routes/routes.js");
 
 //route to routes
-app.use("/api/", routes);
-app.use("/api/v1", routes);
-app.use("/", routes);
+app.use("/api/", route);
+app.use("/api/v1", route);
+app.use("/", route);
 
 //express server & serve HTML file
 app.get("/", function(req, res) {
