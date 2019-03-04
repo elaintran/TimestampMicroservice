@@ -8,10 +8,10 @@ app.get("/api/timestamp/:date_string?", function(req, res) {
 	if (!date_string) {
 		date = new Date();
 	} else {
-		if (!isNaN(date_string)) { //if date_string is a number
-			date = new Date(parseInt(date_string));
-		} else {
+		if (isNaN(date_string)) { //if date_string is not a number
 			date = new Date(date_string);
+		} else {
+			date = new Date(parseInt(date_string));
 		}
 	}
 	res.json({unix: date.getTime(), utc: date.toUTCString()});
@@ -25,6 +25,8 @@ app.get("/", function(req, res) {
 //access public/css folder
 app.use(express.static('public'));
 
-app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+
+app.listen(port, function () {
   console.log('App listening on port 3000!')
 });
