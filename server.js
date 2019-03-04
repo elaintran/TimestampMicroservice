@@ -1,26 +1,21 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-var moment = require("moment");
 var app = express();
 
-//get route
-//var route = require("./routes/routes.js");
-
+//The API endpoint is GET [project_url]/api/timestamp/:date_string?
 app.get("/api/timestamp/:date_string?", function(req, res) {
 	var date_string = req.params.date_string;
-	console.log(date_string);
-	var date;
+	//empty date_string returns current date
 	if (!date_string) {
 		date = new Date();
+	} else {
+		if (!isNaN(date_string)) { //if date_string is a number
+			date = new Date(parseInt(date_string));
+		} else {
+			date = new Date(date_string);
+		}
 	}
-	//res.send(date_string);
 	res.json({unix: date.getTime(), utc: date.toUTCString()});
 });
-
-//route to routes
-/*app.use("/api/", route);
-app.use("/api/v1", route);
-app.use("/", route);*/
 
 //express server & serve HTML file
 app.get("/", function(req, res) {
